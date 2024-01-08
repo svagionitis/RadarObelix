@@ -4,7 +4,7 @@ include(../../RadarObelix.pri)
 
 # ----------------------------------------------------------
 # CONFIG
-QT      += widgets network
+QT      += widgets openglwidgets network concurrent
 DEFINES += QT_DEPRECATED_WARNINGS
 DEFINES += OBELIXLIB_LIBRARY
 
