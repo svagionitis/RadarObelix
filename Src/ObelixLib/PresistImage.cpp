@@ -51,14 +51,14 @@ void PresistImage::AppendImage(QImage &pImage)
   int s6 = 6*s1;
   int s7 = 7*s1;
 
-  QFuture<void> f1 = QtConcurrent::run(CalcPresistence, 0 , s1           , this, pImage, mPersistenceRatio);
-  QFuture<void> f2 = QtConcurrent::run(CalcPresistence, s1, s2           , this, pImage, mPersistenceRatio);
-  QFuture<void> f3 = QtConcurrent::run(CalcPresistence, s2, s3           , this, pImage, mPersistenceRatio);
-  QFuture<void> f4 = QtConcurrent::run(CalcPresistence, s3, s4           , this, pImage, mPersistenceRatio);
-  QFuture<void> f5 = QtConcurrent::run(CalcPresistence, s4, s5           , this, pImage, mPersistenceRatio);
-  QFuture<void> f6 = QtConcurrent::run(CalcPresistence, s5, s6           , this, pImage, mPersistenceRatio);
-  QFuture<void> f7 = QtConcurrent::run(CalcPresistence, s6, s7           , this, pImage, mPersistenceRatio);
-  QFuture<void> f8 = QtConcurrent::run(CalcPresistence, s7, this->width(), this, pImage, mPersistenceRatio);
+  QFuture<void> f1 = QtConcurrent::run([&] { CalcPresistence(0 , s1           , this, pImage, mPersistenceRatio); });
+  QFuture<void> f2 = QtConcurrent::run([&] { CalcPresistence(s1, s2           , this, pImage, mPersistenceRatio); });
+  QFuture<void> f3 = QtConcurrent::run([&] { CalcPresistence(s2, s3           , this, pImage, mPersistenceRatio); });
+  QFuture<void> f4 = QtConcurrent::run([&] { CalcPresistence(s3, s4           , this, pImage, mPersistenceRatio); });
+  QFuture<void> f5 = QtConcurrent::run([&] { CalcPresistence(s4, s5           , this, pImage, mPersistenceRatio); });
+  QFuture<void> f6 = QtConcurrent::run([&] { CalcPresistence(s5, s6           , this, pImage, mPersistenceRatio); });
+  QFuture<void> f7 = QtConcurrent::run([&] { CalcPresistence(s6, s7           , this, pImage, mPersistenceRatio); });
+  QFuture<void> f8 = QtConcurrent::run([&] { CalcPresistence(s7, this->width(), this, pImage, mPersistenceRatio); });
 
   f1.waitForFinished();
   f2.waitForFinished();
