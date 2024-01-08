@@ -6,7 +6,7 @@
 #include "shapefil.h"
 #endif
 
-#include "obelixtoolbox.h"
+#include "ObelixToolbox.h"
 
 #include "MapManager.h"
 
