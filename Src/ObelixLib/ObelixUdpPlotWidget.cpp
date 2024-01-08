@@ -75,7 +75,7 @@ void ObelixUdpPlotWidget::Stop()
   mObelixUdpReaderTrack->AskForStop();
   mObelixUdpReaderMap->AskForStop();
   //
-  Sleep(200);
+  QThread::msleep(200);
   //
   mObelixUdpReaderVideo->wait();
   mObelixUdpReaderTrack->wait();
