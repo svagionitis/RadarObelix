@@ -28,7 +28,7 @@ debug {
 
 # ----------------------------------------------------------
 # USE SHAPE LIBRARY
-CONFIG += shapelib
+CONFIG -= shapelib
 
 shapelib {
 message(Use Shapelib)
