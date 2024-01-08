@@ -1,5 +1,7 @@
 #include "ObelixUdpReaderThread.h"
 
+#include <QVariant>
+
 ObelixUdpReaderThread::ObelixUdpReaderThread(QObject *parent) :
   QThread(parent)
 {
@@ -66,7 +68,7 @@ void ObelixUdpReaderThread::run()
   //lRxSocket->setReadBufferSize(200*mFifoSize*sizeof(T_ObelixVideoMessage));
   //qDebug("Read socket buffer size=%i", lRxSocket->readBufferSize());
 
-  lRxSocket->setSocketOption(QAbstractSocket::ReceiveBufferSizeSocketOption, 2*mFifoSize*mMessageSize);
+  lRxSocket->setSocketOption(QAbstractSocket::ReceiveBufferSizeSocketOption, QVariant(2*mFifoSize*mMessageSize));
 
   // Thread loop
   while (mRun)
